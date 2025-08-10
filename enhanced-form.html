@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Enhanced Form Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        header, main, footer {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        form {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        fieldset {
+            border: none;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        input[readonly] {
+            background-color: #dcdde1;
+            cursor: not-allowed;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #3498db;
+        }
+        .required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Enhanced Form with Structured Content and Media</h1>
+    </header>
+
+    <main>
+        <section aria-label="Informational content">
+            <h2>Featured Topics</h2>
+            <!-- Unordered list -->
+            <ul>
+                <li>Introduction to HTML5 Forms</li>
+                <li>HTML5 Validation and Attributes</li>
+                <li>Accessibility Best Practices</li>
+                <li>Embedding Media and Tables</li>
+            </ul>
+
+            <!-- Ordered list -->
+            <h3>Steps to Complete the Form</h3>
+            <ol>
+                <li>Fill out all required fields marked with <span aria-label="required">*</span></li>
+                <li>Use proper input types to ensure data accuracy</li>
+                <li>Submit the form to see a confirmation message</li>
+            </ol>
+        </section>
+
+        <section aria-label="Example data table">
+            <h2>Sample Product Information</h2>
+            <table>
+                <caption>Product List</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price (USD)</th>
+                        <th scope="col">In Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wireless Mouse</td>
+                        <td>25.99</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>USB-C Charger</td>
+                        <td>19.50</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Bluetooth Speaker</td>
+                        <td>45.00</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-label="Embedded media">
+            <h2>Product Preview</h2>
+            <figure>
+                <img src="https://via.placeholder.com/800x300?text=Product+Preview" alt="Example product preview" />
+                <figcaption>An example image demonstrating product preview.</figcaption>
+            </figure>
+        </section>
+
+        <section aria-label="User registration form">
+            <h2>Register for Our Newsletter</h2>
+            <form action="#" method="POST" novalidate>
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <label for="fullname" class="required">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="John Doe" required autocomplete="name" maxlength="50" />
+
+                    <label for="email" class="required">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email" />
+
+                    <label for="username" class="required">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required minlength="5" maxlength="15" pattern="[A-Za-z0-9_]+" 
+                        title="Username should be 5-15 characters and contain only letters, numbers, or underscores" autocomplete="username" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Account Details</legend>
+
+                    <label for="password" class="required">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required minlength="8" autocomplete="new-password" />
+
+                    <label for="confirm_password" class="required">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required minlength="8" autocomplete="new-password" />
+
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" max="2005-12-31" autocomplete="bday" />
+
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" autocomplete="sex">
+                        <option value="" selected disabled>-- Select Gender --</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="nonbinary">Non-binary</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Contact Preferences</legend>
+
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1-555-555-5555" pattern="\+?[0-9\s\-]{7,15}" autocomplete="tel" />
+
+                    <label>
+                        <input type="checkbox" name="newsletter" checked />
+                        Subscribe to monthly newsletter
+                    </label>
+
+                    <label for="favorite_color">Favorite Color</label>
+                    <input type="color" id="favorite_color" name="favorite_color" value="#0000ff" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Information</legend>
+
+                    <label for="bio">Tell us about yourself</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Write a short bio..." maxlength="300"></textarea>
+
+                    <label for="referral" class="required">Referral Code</label>
+                    <input type="text" id="referral" name="referral" value="REF12345" readonly autocomplete="off" />
+                </fieldset>
+
+                <button type="submit">Submit Registration</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p style="text-align:center;">&copy; 2025 Example Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Example simple client-side validation for password match
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            const password = form.password.value;
+            const confirmPassword = form.confirm_password.value;
+            if(password !== confirmPassword) {
+                alert("Passwords do not match.");
+                form.confirm_password.focus();
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
